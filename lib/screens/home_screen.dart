@@ -1,4 +1,5 @@
 import 'package:financeapp/screens/add_expense_screen.dart';
+import 'package:financeapp/screens/transactions_screen.dart';
 import 'package:financeapp/widgets/credit_card.dart';
 import 'package:financeapp/widgets/transaction_tile.dart';
 import 'package:flutter/material.dart';
@@ -95,7 +96,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text("Expenses", style: TextStyle(color: Color(0xFF51515F), fontSize: 14, fontWeight: FontWeight.w400),),
                   Container(
                     padding: EdgeInsets.all(8),
-                    child: Text("View All"),
+                    child: InkWell(
+                      child: Text("View All"),
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => TransactionsScreen()));
+                      },
+                    ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                       border: Border.all(width: 1.0, color: Color(0xFFDDDDDD)),
