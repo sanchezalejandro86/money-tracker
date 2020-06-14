@@ -20,7 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: Icon(Icons.menu, color: Colors.black,),
+        iconTheme: IconThemeData(color: Colors.black),
+        //leading: Icon(Icons.menu, color: Colors.black,),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -145,6 +146,44 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       backgroundColor: Colors.white,
       floatingActionButton: _getFAB(),
+      drawer: Drawer(
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                child: Text('Money\nTracker', style: TextStyle(color: Colors.white, fontSize: 40),),
+                decoration: BoxDecoration(
+                  color: Color(0xFF6E7382),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.account_balance),
+                title: Text('Accounts', style: TextStyle(fontSize: 20),),
+                onTap: () {
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.credit_card),
+                title: Text('Credit Cards', style: TextStyle(fontSize: 20),),
+                onTap: () {
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.bookmark),
+                title: Text('Categories', style: TextStyle(fontSize: 20),),
+                onTap: () {
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.label),
+                title: Text('Labels', style: TextStyle(fontSize: 20),),
+                onTap: () {
+                },
+              ),
+            ],
+          ),
+      ),
     );
   }
 
@@ -174,6 +213,14 @@ class _HomeScreenState extends State<HomeScreen> {
       shape: CircleBorder(),
       children: [
         SpeedDialChild(
+          child: Icon(Icons.arrow_downward),
+          backgroundColor: Colors.green,
+          label: 'Add Income',
+          labelStyle: TextStyle(fontSize: 18.0),
+          onTap: () => {
+          },
+        ),
+        SpeedDialChild(
             child: Icon(Icons.arrow_upward),
             backgroundColor: Colors.red,
             label: 'Add Expenses',
@@ -184,14 +231,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialPageRoute(builder: (context) => AddExpenseScreen()),
               )
             }
-        ),
-        SpeedDialChild(
-          child: Icon(Icons.arrow_downward),
-          backgroundColor: Colors.green,
-          label: 'Add Income',
-          labelStyle: TextStyle(fontSize: 18.0),
-          onTap: () => {
-          },
         ),
       ],
     );
