@@ -1,9 +1,12 @@
+import 'package:financeapp/screens/abm_categories.dart';
 import 'package:financeapp/screens/add_expense_screen.dart';
 import 'package:financeapp/screens/transactions_screen.dart';
 import 'package:financeapp/widgets/credit_card.dart';
 import 'package:financeapp/widgets/transaction_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+
+import 'abm_accounts.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -161,6 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 leading: Icon(Icons.account_balance),
                 title: Text('Accounts', style: TextStyle(fontSize: 20),),
                 onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ABMAccounts()));
                 },
               ),
               ListTile(
@@ -173,6 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 leading: Icon(Icons.bookmark),
                 title: Text('Categories', style: TextStyle(fontSize: 20),),
                 onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ABMCategories()));
                 },
               ),
               ListTile(
